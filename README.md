@@ -4,7 +4,7 @@
 
 ## 源码仓库
 
-- GitHub：<https://github.com/nannyu/baby-feeding-skill>
+- GitHub：[https://github.com/nannyu/baby-feeding-skill](https://github.com/nannyu/baby-feeding-skill)
 
 ## 快速开始
 
@@ -18,7 +18,7 @@ pnpm run baby-feeding -- plan
 
 ## OpenClaw 使用
 
-技能说明与安装步骤见根目录 **`SKILL.md`**（含 `skills/` 放置路径、`pnpm build`、`exec` 调用示例）。
+技能说明与安装步骤见根目录 `**SKILL.md**`（含 `skills/` 放置路径、`pnpm build`、`exec` 调用示例）。
 
 ## 文档
 
@@ -32,3 +32,4 @@ pnpm run baby-feeding -- plan
 ## 环境变量
 
 - `BABY_FEEDING_DB_PATH`：SQLite 路径（默认 `./data/baby-feeding.sqlite`）
+

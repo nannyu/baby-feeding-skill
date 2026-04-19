@@ -9,6 +9,7 @@
 | [架构说明.md](./架构说明.md)                               | 研发          | 分层架构、模块边界、关键数据流、扩展点                |
 | [路线图.md](./路线图.md)（[ROADMAP.md](./ROADMAP.md) 同入口） | 产品/研发       | 里程碑状态、近期优先级、依赖与开放问题                |
 | [工程规范.md](./工程规范.md)                               | 研发          | 分支/commit、目录、测试、配置与文档维护规则          |
+| [OpenClaw原生工具.md](./OpenClaw原生工具.md)                 | 研发          | 以 OpenClaw Plugin `registerTool` 暴露原生工具       |
 
 
 仓库根目录另有：

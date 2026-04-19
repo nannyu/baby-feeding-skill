@@ -1,8 +1,8 @@
 ---
-name: baby-feeding
+
+## name: baby-feeding
 description: 规则驱动的婴幼儿辅食周计划、反应记录与日历导出（多宝宝数据隔离；高风险症状触发阻断）。
 metadata: {"openclaw":{"emoji":"🍼","requires":{"bins":["node"],"anyBins":["pnpm","npm"]}}}
----
 
 # 宝宝辅食（Baby Feeding Planner）
 
@@ -29,10 +29,10 @@ metadata: {"openclaw":{"emoji":"🍼","requires":{"bins":["node"],"anyBins":["pn
 
 ## 推荐输出结构（面向用户）
 
-1. 当前宝宝：昵称、月龄、风险级别  
-2. 计划摘要：本周餐次数、是否启用「暂停新食材」保护、关键规则命中摘要  
-3. 逐日菜谱：菜名、食材、质地、做法、观察点、是否含新食材  
-4. 风险提示：`risk_flags` 原文优先展示  
+1. 当前宝宝：昵称、月龄、风险级别
+2. 计划摘要：本周餐次数、是否启用「暂停新食材」保护、关键规则命中摘要
+3. 逐日菜谱：菜名、食材、质地、做法、观察点、是否含新食材
+4. 风险提示：`risk_flags` 原文优先展示
 5. 联动产物：ICS 文本或保存路径（由宿主决定）
 
 ## 本地数据
@@ -70,9 +70,9 @@ pnpm install && pnpm run build
 
 ### 3. 运行时如何调用（当前实现形态）
 
-本技能**尚未**以内置 MCP 工具名注册到 OpenClaw；模型需要通过宿主提供的 **`exec` / `run_terminal_cmd` 类能力**执行本地 Node 项目：
+本技能**尚未**以内置 MCP 工具名注册到 OpenClaw；模型需要通过宿主提供的 `**exec` / `run_terminal_cmd` 类能力**执行本地 Node 项目：
 
-- 技能根目录在说明里用 **`{baseDir}`** 指代（OpenClaw 对技能目录的占位符；若你使用的客户端不支持，请改为该技能目录的真实绝对路径）。
+- 技能根目录在说明里用 `**{baseDir}`** 指代（OpenClaw 对技能目录的占位符；若你使用的客户端不支持，请改为该技能目录的真实绝对路径）。
 - 所有 CLI 建议前缀：`cd {baseDir} && ...`，并已构建好 `dist/`。
 
 示例（建档、生成计划、写反应、导出 ICS）：
@@ -90,7 +90,12 @@ cd {baseDir} && pnpm run baby-feeding -- ics <plan_id>
 
 若 agent 在 **sandbox** 或 **远端 macOS 节点** 上执行：需保证镜像/节点内同样存在 `node` 与 `pnpm` 或 `npm`，且能访问 `BABY_FEEDING_DB_PATH` 所指文件（官方文档对 `requires.bins` 在 sandbox 内有单独说明）。
 
+### 5. 进阶：做成 OpenClaw「原生工具」（非 exec）
+
+若要让模型直接调用 `baby_feeding_*` 这类工具名，需要单独做一个 **OpenClaw Native Plugin**，在 `register(api)` 里 `api.registerTool(...)`，并在 `execute` 中调用本仓库导出的 API。安装侧通常是 `openclaw plugins install <包名或本地路径>`。详见 **`docs/OpenClaw原生工具.md`**。
+
 ## 进一步阅读
 
 - 产品/数据/里程碑单一事实来源：`docs/开发规划方案.md`
 - 项目工程约定：`CLAUDE.md`
+
