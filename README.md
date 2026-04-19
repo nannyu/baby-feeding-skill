@@ -18,7 +18,8 @@ pnpm run baby-feeding -- plan
 
 ## OpenClaw 使用
 
-技能说明与安装步骤见根目录 `**SKILL.md**`（含 `skills/` 放置路径、`pnpm build`、`exec` 调用示例）。
+- 技能说明与安装步骤：根目录 **`SKILL.md`**（`skills/` 路径、`pnpm build`、用 `exec` 调 CLI）。
+- 做成 Gateway **原生工具**（`registerTool`）：**`docs/OpenClaw原生工具.md`**。
 
 ## 文档
 
