@@ -1,7 +1,7 @@
 ---
 name: baby-feeding
 description: 规则驱动的婴幼儿辅食周计划、反应记录与日历导出（多宝宝数据隔离；高风险症状触发阻断）。
-metadata: {"openclaw":{"emoji":"🍼","requires":{"bins":["node"]}}}
+metadata: {"openclaw":{"emoji":"🍼","requires":{"bins":["node"],"anyBins":["pnpm","npm"]}}}
 ---
 
 # 宝宝辅食（Baby Feeding Planner）
@@ -37,7 +37,58 @@ metadata: {"openclaw":{"emoji":"🍼","requires":{"bins":["node"]}}}
 
 ## 本地数据
 
-默认 SQLite：`./data/baby-feeding.sqlite`（可用环境变量 `BABY_FEEDING_DB_PATH` 覆盖）。
+默认 SQLite：`./data/baby-feeding.sqlite`（可用环境变量 `BABY_FEEDING_DB_PATH` 覆盖）。  
+在 OpenClaw 里用 `exec` 跑 CLI 时，建议把 `BABY_FEEDING_DB_PATH` 设为**固定绝对路径**（例如 `{baseDir}/data/baby-feeding.sqlite`），避免工作目录变化导致数据找不到。
+
+## 在 OpenClaw 中安装与使用（部署）
+
+OpenClaw 加载的是 **AgentSkills 形态**：一个目录内含 `SKILL.md`（见官方 [Skills](https://github.com/openclaw/openclaw/blob/main/docs/tools/skills.md) / [Creating Skills](https://github.com/openclaw/openclaw/blob/main/docs/tools/creating-skills.md)）。本仓库根目录即技能根目录（根上已有 `SKILL.md`）。
+
+### 1. 把技能放进 OpenClaw 能发现的目录
+
+任选其一（优先级从高到低常见为「当前 agent 工作区」的 `skills/`）：
+
+- **推荐（工作区技能）**：放到当前 OpenClaw workspace 下的 `skills/baby-feeding/`，并保证该文件夹里**直接**包含本仓库的 `SKILL.md`（即把整个仓库内容放进 `skills/baby-feeding/`，或 `git clone` 到该目录名）。
+- **共享技能目录**：`~/.openclaw/skills/` 或 `~/.agents/skills/`（适合多台机器共用；注意与同名技能的覆盖规则）。
+
+示例（路径按你本机 workspace 调整）：
+
+```bash
+mkdir -p ~/.openclaw/workspace/skills
+git clone https://github.com/nannyu/baby-feeding-skill.git ~/.openclaw/workspace/skills/baby-feeding
+cd ~/.openclaw/workspace/skills/baby-feeding
+pnpm install && pnpm run build
+```
+
+若你的 OpenClaw 版本提供「从 URL 安装技能」的 UI 或 CLI，也可指向同一 GitHub 仓库；安装后仍建议在技能目录执行一次 `pnpm install && pnpm run build`。
+
+### 2. 让 agent 能加载到该技能
+
+- 在 `openclaw.json`（或你环境里的 OpenClaw 配置）中检查 **skills allowlist**：不要把 `baby-feeding` 排除在外（见官方 Skills config）。
+- **新开会话**或重启 Gateway，使技能快照刷新：`/new` 或 `openclaw gateway restart`（以你环境为准）。
+- 验证：`openclaw skills list` 中应能看到 `baby-feeding`。
+
+### 3. 运行时如何调用（当前实现形态）
+
+本技能**尚未**以内置 MCP 工具名注册到 OpenClaw；模型需要通过宿主提供的 **`exec` / `run_terminal_cmd` 类能力**执行本地 Node 项目：
+
+- 技能根目录在说明里用 **`{baseDir}`** 指代（OpenClaw 对技能目录的占位符；若你使用的客户端不支持，请改为该技能目录的真实绝对路径）。
+- 所有 CLI 建议前缀：`cd {baseDir} && ...`，并已构建好 `dist/`。
+
+示例（建档、生成计划、写反应、导出 ICS）：
+
+```bash
+cd {baseDir} && pnpm run baby-feeding -- profile
+cd {baseDir} && pnpm run baby-feeding -- plan 2026-04-20
+cd {baseDir} && pnpm run baby-feeding -- reaction egg_yolk mild "嘴周轻微发红"
+cd {baseDir} && pnpm run baby-feeding -- ics <plan_id>
+```
+
+将命令输出（JSON 或 ICS 文本）整理后回复用户；需要持久化 ICS 时，由你把 stdout 写入用户选定的 `.ics` 路径。
+
+### 4. 沙箱 / macOS 节点
+
+若 agent 在 **sandbox** 或 **远端 macOS 节点** 上执行：需保证镜像/节点内同样存在 `node` 与 `pnpm` 或 `npm`，且能访问 `BABY_FEEDING_DB_PATH` 所指文件（官方文档对 `requires.bins` 在 sandbox 内有单独说明）。
 
 ## 进一步阅读
 

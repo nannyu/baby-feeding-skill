@@ -16,6 +16,10 @@ pnpm run baby-feeding -- profile
 pnpm run baby-feeding -- plan
 ```
 
+## OpenClaw 使用
+
+技能说明与安装步骤见根目录 **`SKILL.md`**（含 `skills/` 放置路径、`pnpm build`、`exec` 调用示例）。
+
 ## 文档
 
 - `docs/README.md`：文档索引
