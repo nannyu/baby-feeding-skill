@@ -74,8 +74,43 @@ pnpm run baby-feeding -- show-plan <plan_id>
 
 ## 和 OpenClaw（智能助手）一起用
 
-如果你在用 OpenClaw：把本仓库放进 OpenClaw 能识别的 `skills` 文件夹里，按根目录 **`SKILL.md`** 里的说明安装、编译，助手就可以通过说明去调用这里的命令。  
-若要让助手像「点工具按钮」一样直接调用（原生工具），需要额外写一个 OpenClaw 插件，见 **`docs/OpenClaw原生工具.md`**。
+OpenClaw 要能「看到」本技能，需要把本仓库放到它扫描的 **`skills`** 目录里，并完成 **`pnpm install` + `pnpm run build`**。下面给你两种方式。
+
+### 一条命令安装（推荐：在自己电脑终端里执行）
+
+复制下面**整行**，在 macOS「终端」或 Windows「PowerShell/WSL」里粘贴回车（需要已安装 `git` 和 `curl`，并能访问 GitHub）：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/nannyu/baby-feeding-skill/main/scripts/install-openclaw-skill.sh | bash
+```
+
+脚本会做三件事：在默认目录 `~/.openclaw/workspace/skills/baby-feeding` **克隆或更新**代码 → **安装依赖** → **编译**。  
+若你的 OpenClaw 工作区不在默认路径，可先设置环境变量再执行同一行命令，例如：
+
+```bash
+export OPENCLAW_WORKSPACE="$HOME/你的路径/openclaw-workspace"
+curl -fsSL https://raw.githubusercontent.com/nannyu/baby-feeding-skill/main/scripts/install-openclaw-skill.sh | bash
+```
+
+装完后：**新开一轮对话**，或按你环境的要求**重启 Gateway**；再在终端执行 `openclaw skills list`，应能看到 **`baby-feeding`**。之后助手会按根目录 **`SKILL.md`** 的说明，用 `exec` 去调本项目里的命令。
+
+> **若 `curl` 访问 raw.githubusercontent.com 失败**：请改用「手动克隆」那一节（上面「第 1 步」），把仓库克隆到 `你的OpenClaw工作区/skills/baby-feeding/`，再在该目录执行 `pnpm install && pnpm run build`。
+
+### 复制到 OpenClaw 对话里让助手执行（可选）
+
+前提：你的 OpenClaw **允许助手执行终端/系统命令**（例如 `exec`），且本次执行你点了**允许联网**（要拉 GitHub 脚本和代码）。
+
+把下面**整段**复制进 OpenClaw 对话即可（只有一行命令，减少助手改写字面量的机会）：
+
+```text
+请在主机上执行（需联网、可能需要我批准）：curl -fsSL https://raw.githubusercontent.com/nannyu/baby-feeding-skill/main/scripts/install-openclaw-skill.sh | bash
+```
+
+若助手拆成多步执行也可以，只要最终等价于：下载并运行上述脚本。执行成功后同样要**新开会话或重启 Gateway**，再检查 `openclaw skills list`。
+
+### 想做成「点一下工具」那种原生能力
+
+需要额外写一个 OpenClaw 插件（`registerTool`），见 **`docs/OpenClaw原生工具.md`**。
 
 ---
 
