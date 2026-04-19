@@ -1,0 +1,66 @@
+[
+  {
+    "recipe_name": "大米米糊（保守备选）",
+    "ingredients": ["rice"],
+    "texture": "smooth_puree",
+    "meal_types": ["breakfast", "lunch", "dinner", "snack"],
+    "instructions": "按米粉/米糊包装冲调，从稀到稠；可作为其他菜谱不可用时的保守备选。",
+    "watch_points": ["首次添加仍需观察耐受与排便"]
+  },
+  {
+    "recipe_name": "胡萝卜米糊",
+    "ingredients": ["carrot", "rice"],
+    "texture": "smooth_puree",
+    "meal_types": ["lunch", "dinner"],
+    "instructions": "胡萝卜蒸熟后与米糊搅拌均匀；质地以顺滑为准。",
+    "watch_points": ["首次引入胡萝卜时白天观察皮肤与排便"]
+  },
+  {
+    "recipe_name": "南瓜鸡肉泥",
+    "ingredients": ["pumpkin", "chicken"],
+    "texture": "smooth_puree",
+    "meal_types": ["lunch", "dinner"],
+    "instructions": "南瓜与鸡胸肉蒸熟后打泥，可少量加水调节稠度。",
+    "watch_points": ["首次引入鸡肉时建议单独排敏观察"]
+  },
+  {
+    "recipe_name": "西兰花米糊",
+    "ingredients": ["broccoli", "rice"],
+    "texture": "fine_mashed",
+    "meal_types": ["lunch", "dinner"],
+    "instructions": "西兰花焯水后打碎，拌入米糊。",
+    "watch_points": ["胀气敏感宝宝可减少用量"]
+  },
+  {
+    "recipe_name": "牛油果泥",
+    "ingredients": ["avocado"],
+    "texture": "smooth_puree",
+    "meal_types": ["breakfast", "snack", "lunch"],
+    "instructions": "成熟牛油果刮泥即可。",
+    "watch_points": ["脂肪含量高，注意总量"]
+  },
+  {
+    "recipe_name": "苹果泥",
+    "ingredients": ["apple"],
+    "texture": "smooth_puree",
+    "meal_types": ["breakfast", "snack"],
+    "instructions": "苹果蒸熟后打泥（生吃需更高咀嚼能力，按质地规则选择）。",
+    "watch_points": ["观察口周皮肤反应"]
+  },
+  {
+    "recipe_name": "蛋黄泥（排敏）",
+    "ingredients": ["egg_yolk", "rice"],
+    "texture": "fine_mashed",
+    "meal_types": ["lunch"],
+    "instructions": "从少量蛋黄开始，与米糊混合；遵循少量递增原则。",
+    "watch_points": ["高敏食材：白天引入，观察皮疹/呕吐/呼吸等表现"]
+  },
+  {
+    "recipe_name": "豆腐蔬菜泥",
+    "ingredients": ["tofu", "carrot", "broccoli"],
+    "texture": "fine_mashed",
+    "meal_types": ["lunch", "dinner"],
+    "instructions": "豆腐焯水去豆腥，与蔬菜泥混合。",
+    "watch_points": ["豆制品为常见致敏原：不建议与其他新高蛋白同日叠加"]
+  }
+]

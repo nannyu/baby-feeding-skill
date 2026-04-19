@@ -1,0 +1,65 @@
+[
+  {
+    "id": "rice",
+    "name_zh": "大米",
+    "min_age_months": 6,
+    "textures": ["smooth_puree", "fine_mashed", "soft_small_lumps"],
+    "high_allergen": false
+  },
+  {
+    "id": "carrot",
+    "name_zh": "胡萝卜",
+    "min_age_months": 6,
+    "textures": ["smooth_puree", "fine_mashed", "soft_small_lumps"],
+    "high_allergen": false
+  },
+  {
+    "id": "pumpkin",
+    "name_zh": "南瓜",
+    "min_age_months": 6,
+    "textures": ["smooth_puree", "fine_mashed", "soft_small_lumps"],
+    "high_allergen": false
+  },
+  {
+    "id": "broccoli",
+    "name_zh": "西兰花",
+    "min_age_months": 6,
+    "textures": ["smooth_puree", "fine_mashed", "soft_small_lumps"],
+    "high_allergen": false
+  },
+  {
+    "id": "chicken",
+    "name_zh": "鸡胸肉",
+    "min_age_months": 6,
+    "textures": ["smooth_puree", "fine_mashed", "soft_small_lumps"],
+    "high_allergen": false
+  },
+  {
+    "id": "tofu",
+    "name_zh": "豆腐",
+    "min_age_months": 6,
+    "textures": ["fine_mashed", "soft_small_lumps"],
+    "high_allergen": true
+  },
+  {
+    "id": "egg_yolk",
+    "name_zh": "蛋黄",
+    "min_age_months": 6,
+    "textures": ["fine_mashed", "soft_small_lumps"],
+    "high_allergen": true
+  },
+  {
+    "id": "avocado",
+    "name_zh": "牛油果",
+    "min_age_months": 6,
+    "textures": ["smooth_puree", "fine_mashed"],
+    "high_allergen": false
+  },
+  {
+    "id": "apple",
+    "name_zh": "苹果",
+    "min_age_months": 6,
+    "textures": ["smooth_puree", "fine_mashed", "soft_small_lumps"],
+    "high_allergen": false
+  }
+]

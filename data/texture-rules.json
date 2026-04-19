@@ -1,0 +1,20 @@
+[
+  {
+    "min_age_months": 6,
+    "max_age_months_exclusive": 9,
+    "allowed_textures": ["smooth_puree", "fine_mashed"],
+    "notes_zh": "以泥糊/极细腻为主，避免需要咀嚼的颗粒"
+  },
+  {
+    "min_age_months": 9,
+    "max_age_months_exclusive": 12,
+    "allowed_textures": ["smooth_puree", "fine_mashed", "soft_small_lumps"],
+    "notes_zh": "逐步过渡到小颗粒/软碎末"
+  },
+  {
+    "min_age_months": 12,
+    "max_age_months_exclusive": null,
+    "allowed_textures": ["smooth_puree", "fine_mashed", "soft_small_lumps", "finger_food_soft"],
+    "notes_zh": "在监护下可尝试更多软质手指食物"
+  }
+]

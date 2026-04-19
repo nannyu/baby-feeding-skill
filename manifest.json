@@ -1,0 +1,9 @@
+{
+  "name": "baby-feeding-skill",
+  "version": "0.1.0",
+  "description": "Baby feeding planner skill (rules engine + SQLite + ICS export) for OpenClaw / agent runtimes.",
+  "language": "typescript",
+  "runtime": "node",
+  "entry": "dist/index.js",
+  "docs": "docs/开发规划方案.md"
+}

@@ -1,0 +1,6 @@
+{
+  "high_risk_symptoms_zh": ["呼吸困难", "口唇肿胀", "舌部肿胀", "持续剧烈呕吐", "明显精神差", "反应差"],
+  "high_risk_symptoms_en": ["difficulty breathing", "lip swelling", "tongue swelling", "severe vomiting", "lethargy"],
+  "observation_days_after_new_high_allergen": 3,
+  "notes_zh": "命中高风险表现：停止继续自动推荐新食材，并进入风险提示流程（非诊断）。"
+}

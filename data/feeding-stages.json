@@ -1,0 +1,20 @@
+[
+  {
+    "min_age_months": 6,
+    "max_age_months_exclusive": 9,
+    "meals_per_day": 2,
+    "notes_zh": "6-8 月龄：常见为每天 2 次辅食（可按宝宝节奏微调）"
+  },
+  {
+    "min_age_months": 9,
+    "max_age_months_exclusive": 12,
+    "meals_per_day": 3,
+    "notes_zh": "9-11 月龄：常见为每天 3 次辅食"
+  },
+  {
+    "min_age_months": 12,
+    "max_age_months_exclusive": null,
+    "meals_per_day": 3,
+    "notes_zh": "12 月龄及以上：常见为每天 3 次辅食（可与家庭餐对齐）"
+  }
+]
