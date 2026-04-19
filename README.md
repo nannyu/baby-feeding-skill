@@ -2,6 +2,10 @@
 
 规则驱动的婴幼儿辅食规划技能：周计划、反应记录、食材状态机与 ICS 导出。产品需求与里程碑以 `docs/开发规划方案.md` 为单一事实来源。
 
+## 源码仓库
+
+- GitHub：<https://github.com/nannyu/baby-feeding-skill>
+
 ## 快速开始
 
 ```bash
